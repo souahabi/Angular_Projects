@@ -1,0 +1,66 @@
+<h5 class="card-header">Exervice2</h5>
+
+<div class="container">
+
+
+  <div  class="card">
+    <h5 class="card-header">Calculatrice Exercice</h5>
+    <div class="card-body">
+      <h5 class="card-title">You can choose your operation here!</h5>
+      <!--form [formGroup]="emailForm" (ngSubmit)="onResetPasswort()"-->
+        <form [formGroup]="calcForm" (ngSubmit)="onSubmit()">
+        <input id="input1" type="text" placeholder="First input" formControlName="in1" class="form-control" required />
+        <select class="form-select" aria-label="operation" formControlName="operation" >
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="/">/</option>
+          <option value="*">*</option>
+        </select>
+        <input id="input2" type="text" placeholder="Second input" formControlName="in2" class="form-control" required />
+
+
+        <div style="text-align: center;"><button type="submit" class="btn-primary" >Submit</button></div>
+
+
+      </form>
+    </div>
+  </div>
+  <div class="card">
+    <h5 class="card-header">Result</h5>
+    <div class="card-body">
+      <h2>Result is : {{lastres}} </h2>
+
+    </div>
+
+
+  </div>
+  <div class="card">
+    <h5 class="card-header">History</h5>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Index</th>
+            <th scope="col">Date</th>
+            <th scope="col">Operation</th>
+            <th scope="col">Result</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let element of resluts; let i=index">
+            <th >{{i+1}}</th>
+            <td>{{element.date}}</td>
+            <td>{{element.operation}}</td>
+            <td>{{element.result}}</td>
+            <td><button (click)="delElement(i)">delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+
+  </div>
+</div>
+

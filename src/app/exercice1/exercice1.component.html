@@ -1,0 +1,48 @@
+
+  <h5 class="card-header">Exervice1</h5>
+
+<div class="container">
+
+
+  <div *ngIf="mode==0" class="card">
+    <h5 class="card-header">Typing Exercice</h5>
+    <div class="card-body">
+      <h5 class="card-title">You can choose the option here!</h5>
+      <!--form [formGroup]="emailForm" (ngSubmit)="onResetPasswort()"-->
+        <form [formGroup]="nameForm" (ngSubmit)="onSubmit()">
+        <label for="name"> Name</label>
+        <input id="name" type="text" placeholder="Enter your name" formControlName="name" class="form-control" required />
+        <label for="font">Font</label>
+        <select class="form-select" aria-label="font" formControlName="font">
+          <option value="auto">Auto</option>
+          <option value="cursive">Cursive</option>
+          <option value="emogi">Emoji</option>
+          <option value="fangsong">Fangsong</option>
+          <option value="fantasy">Fantasy</option>
+        </select>
+        <label for="size"> Size</label>
+        <input type="text" class="form-range" placeholder="Enter the number of pixels"  id="size" formControlName="size" class="form-control" required>
+
+        <label for="alignement" >Alignement</label>
+        <div class="btn-group" role="group" aria-label="alignement" >
+          <input id="btnradio1" type="radio" formControlName="alignement" class="btn-check"  value="left"  autocomplete="off" checked>
+          <label class="btn btn-outline-primary" for="btnradio1">Left</label>
+
+          <input id="btnradio2" type="radio" formControlName="alignement" class="btn-check"  value="center"  autocomplete="off">
+          <label class="btn btn-outline-primary" for="btnradio2">Centred</label>
+
+          <input id="btnradio3" type="radio" formControlName="alignement" class="btn-check"  value="right"  autocomplete="off">
+          <label class="btn btn-outline-primary" for="btnradio3">Right</label>
+        </div>
+        <div style="text-align: center;"><button type="submit" class="btn-primary nicebut" >Submit</button></div>
+
+
+      </form>
+    </div>
+  </div>
+
+  <div *ngIf="mode==1">
+    <p  [ngStyle]="{'font-size': nameForm.value.size + 'px','font-family':nameForm.value.font,'text-align':nameForm.value.alignement}" >Hello {{nameForm.value.name.toUpperCase()}} !</p>
+    <button (click)="mode=0" class="btn-primary">Go Back</button>
+  </div>
+</div>

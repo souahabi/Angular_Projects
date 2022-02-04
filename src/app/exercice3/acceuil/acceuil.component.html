@@ -1,0 +1,62 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Id
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" type="button" (click)="filter('id','asc')">↑</a></li>
+          <li><a class="dropdown-item" (click)="filter('id','desc')">↓</a></li>
+        </ul>
+      </th>
+      <th scope="col"> <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Amount
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" (click)="filter('amount','asc')">↑</a></li>
+          <li><a class="dropdown-item" (click)="filter('amount','desc')">↓</a></li>
+        </ul>
+      </th>
+      <th scope="col"> <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Balance
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" (click)="filter('balance','asc')">↑</a></li>
+          <li><a class="dropdown-item" (click)="filter('balance','desc')">↓</a></li>
+        </ul>
+      </th>
+      <th scope="col">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Label
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" (click)="filter('label','asc')">↑</a></li>
+          <li><a class="dropdown-item" (click)="filter('label','desc')">↓</a></li>
+        </ul>
+      </th>
+      <th scope="col"> <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Date
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" (click)="filter('date','asc')">↑</a></li>
+          <li><a class="dropdown-item" (click)="filter('date','desc')">↓</a></li>
+        </ul>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="hover" (click)="getdetails(element.id)"  *ngFor="let element of transactions; let i=index">
+      <th>{{element.id}}</th>
+      <td>{{element.amount}}</td>
+      <td>{{element.balance}}</td>
+      <td>{{element.label}}</td>
+      <td>{{element.date}}</td>
+    </tr>
+  </tbody>
+</table>
